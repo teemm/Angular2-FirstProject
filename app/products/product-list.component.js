@@ -39,7 +39,9 @@ System.register(['angular2/core', './products-filter.pipe', '../shared/star.comp
                     this.showImage = !this.showImage;
                 };
                 ProductListComponent.prototype.ngOnInit = function () {
-                    this.products = this._ProductSerice.getProducts();
+                    var _this = this;
+                    this._ProductSerice.getProducts()
+                        .subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
                 };
                 ProductListComponent.prototype.onRatingClicked = function (message) {
                     this.pageTitle = 'produck list' + message;
