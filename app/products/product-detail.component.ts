@@ -1,9 +1,18 @@
 import { Component } from 'angular2/core';
-
-@Component {
+import { RouteParams, Router } from 'angular2/router';
+@Component ({
     templateUrl : 'app/products/product-detail.component.html'
-}
+})
 
 export class ProductDetailComponent {
     pageTitle : string = 'page title';
+
+    constructor (private _routeParams : RouteParams,
+                private _router : Router){
+        let id = +this._routeParams.get('id');
+        this.pageTitle += `: ${id}`;
+    }
+    onBack(): void {
+        this._router.navigate(['Products']);
+    }
 }
