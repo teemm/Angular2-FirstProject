@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -23,6 +23,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.ratingClicked = new core_1.EventEmitter();
                 }
                 StarComponent.prototype.ngOnChanges = function () {
+                    // Convert x out of 5 starts
+                    // to y out of 86px width
                     this.starWidth = this.rating * 86 / 5;
                 };
                 StarComponent.prototype.onClick = function () {
@@ -39,8 +41,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 StarComponent = __decorate([
                     core_1.Component({
                         selector: 'ai-star',
-                        templateUrl: '/app/shared/star.component.html',
-                        styleUrls: ['/app/shared/star.component.css']
+                        templateUrl: 'app/shared/star.component.html',
+                        styleUrls: ['app/shared/star.component.css']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], StarComponent);
